@@ -1,0 +1,24 @@
+/***********
+school website.html
+************/
+/*************
+carousel
+**************/
+.carousel-inner .carousel-caption {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    bottom: 0;
+    top: 40%;
+    left: 0;
+    right: 0;
+}
+
+.carousel-inner .carousel-caption h5{
+    color:black;
+    margin-bottom: 7px;
+    font-size: 42 px;
+    width: 80%;
+    margin: 0px auto 30px;
+}
