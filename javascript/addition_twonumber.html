@@ -19,25 +19,26 @@
     <script language="javascript">
         function calculate()
         {
-            var num1,num2,add;
+            var num1,num2,calculate;
     num1=prompt("enter num1");
     num2=prompt("enter num2");
 
     //parseInt function is used to convert string to integer
+    calculate=parseInt(num1)+parseInt(num2);
+
     
     
-    var add=num1+num2;
-
-    alert("addition of  num1 = " + add);
-
-    alert("addition of  num2 = " + add);
-
-    document.write("addition of num1 is" +add);
-    document.write("<br>addition of num2 is" +add);
+    alert("addition of  Int = " + calculate);
+    document.write("addition of num1 is"+calculate);
+    document.write("<br>addition of num2 is"+calculate);
         }
         calculate();
     </script>
 </html>
+
+
+
+
 
 
 
