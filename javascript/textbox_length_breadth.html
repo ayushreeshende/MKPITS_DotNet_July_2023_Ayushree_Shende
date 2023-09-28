@@ -1,0 +1,27 @@
+<!---wap to accept length and breadth and display result-->
+<html>
+    <script language="javascript">
+        function area()
+        
+        {
+            var length=parseInt(document.getElementById("n1").value);
+            var breadth=parseInt(document.getElementById("n2").value);
+            ans=length*breadth;
+            document.getElementById("res").innerHTML="area="+ans;
+        }
+
+    </script>
+    <form name="f1">
+        enter length: <input type=text id="n1" /> <br><br>
+        enter breadth : <input type=text id="n2" /> <br><br>
+        <input type=button value="area" onclick="area();" />
+        
+        <br><br>
+        <span id="res" >Result :</span>
+        </form>
+    
+    
+    </html>
+    
+    
+</html>

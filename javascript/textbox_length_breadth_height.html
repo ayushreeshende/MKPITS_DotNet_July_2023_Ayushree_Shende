@@ -1,0 +1,31 @@
+<!--- wap to accept l, b and h and print volume-->
+
+<html>
+    <script language="javascript">
+        function volume()
+        
+        {
+            var length=parseInt(document.getElementById("n1").value);
+            var breadth=parseInt(document.getElementById("n2").value);
+            var height=parseInt(document.getElementById("n3").value);
+
+            volume=length*breadth*height;
+            document.getElementById("res").innerHTML="volume="+volume;
+        }
+
+    </script>
+    <form name="f1">
+        enter length: <input type=text id="n1" /> <br><br>
+        enter breadth : <input type=text id="n2" /> <br><br>
+        enter height: <input type=text id="n3" /> <br><br>
+        <input type=button value="volume" onclick="volume();" />
+        
+        <br><br>
+        <span id="res" >Result :</span>
+        </form>
+    
+    
+    </html>
+    
+    
+</html>
