@@ -1,0 +1,71 @@
+<!--- wap to accept 3 subject marks and display total, per, and grade-->
+<html>
+    <script language="javascript">
+        function total()
+        {
+       var sub1=parseFloat(document.getElementById("s1").value);
+        var sub2=parseFloat(document.getElementById("s2").value);
+        var sub3=parseFloat(document.getElementById("s3").value);
+
+
+       var total_marks=sub1+sub2+sub3;
+            document.getElementById("res").innerHTML="total marks is ="+total_marks;
+      
+        }
+        function per()
+        {
+            var sub1=parseFloat(document.getElementById("s1").value);
+        var sub2=parseFloat(document.getElementById("s2").value);
+        var sub3=parseFloat(document.getElementById("s3").value);
+
+
+       var total_marks=sub1+sub2+sub3;
+       per=total_marks/300.*100.0;
+            document.getElementById("res").innerHTML="percentage is ="+per;
+      
+        }
+        function grade()
+        {
+            var sub1=parseFloat(document.getElementById("s1").value);
+        var sub2=parseFloat(document.getElementById("s2").value);
+        var sub3=parseFloat(document.getElementById("s3").value);
+
+
+       var total_marks=sub1+sub2+sub3;
+       per=total_marks/300.*100.0;
+
+       if(per>=75)
+       {
+
+       
+            document.getElementById("res").innerHTML="grade is distinction";  
+        }
+        else if(per>=65)
+{
+    document.getElementById("res").innerHTML="grade is first";  
+        }
+        else if  (per>=45)
+        {
+            document.getElementById("res").innerHTML="grade is second";   
+        }
+        else
+{
+    document.getElementById("res").innerHTML="fail";   
+        }  
+}
+        
+
+        </script>
+        <form name ="f1">
+        enter sub1:<input type="text" id="s1"/><br><br>
+        enter sub2:<input type="text" id="s2"/><br><br>
+        enter sub3:<input type="text" id="s3"/><br><br>
+    
+        <input type="button"value="total" onclick="total();"/>
+        <input type="button"value="per" onclick="per();"/>
+        <input type="button"value="grade" onclick="grade();"/>
+        <br><br>
+        
+        <span id="res">---</span>
+    </form>
+</html>

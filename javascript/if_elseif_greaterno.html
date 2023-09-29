@@ -1,0 +1,33 @@
+<!--- wap to accept 3 no and display greatest no--->
+<html>
+<form name ="f1">
+    enter num1:<input type="text" id="n1"/><br><br>
+    enter num2:<input type="text" id="n2"/><br><br>
+    enter num3:<input type="text" id="n3"/><br><br>
+
+    <input type="button"value="submit" onclick="great();"/><br><br>
+    <span id="result">show</span>
+    
+</form>
+<script language="javascript">
+    function great()
+    {
+        var num1=parseInt(document.getElementById("n1").value);
+        var num2=parseInt(document.getElementById("n2").value);
+        var num3=parseInt(document.getElementById("n3").value);
+        if(num1>num2 && num1>num3)
+        {
+            document.getElementById("result").innerHTML="num 1 is greater";
+        }
+        else if (num2>num1 && num2>num3)
+        {
+            document.getElementById("result").innerHTML="num 2 is greater";
+        }
+        else
+        {
+            document.getElementById("result").innerHTML="num 3 is greater";
+        }
+        }
+    
+</script>
+</html>
