@@ -4,24 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace natural_sum
+namespace dowhileno1to5
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-
             int num = 1;
-            int sum = 0;
-            while(num<=10)
+            do
             {
-                Console.WriteLine(num);
-                sum += num;
+                Console.WriteLine("num={0}", num);
                 num++;
-
-            }
-            Console.WriteLine("result :" + sum);
+            } while (num <= 5);
             Console.ReadKey();
         }
+        
+        }
+        
     }
-}
+
