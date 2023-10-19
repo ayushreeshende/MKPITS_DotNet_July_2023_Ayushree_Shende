@@ -10,17 +10,21 @@ namespace _3subtotalpergrade
     {
         static void Main(string[] args)
         {
-            int sub1, sub2, sub3, total;
+            int marks;
             float per;
             string grade = null;
-            Console.WriteLine("enter 3 subject marks");
-            sub1 = Convert.ToInt32(Console.ReadLine());
-            sub2 = Convert.ToInt32(Console.ReadLine());
-            sub3 = Convert.ToInt32(Console.ReadLine());
-            total = sub1 + sub2 + sub3;
-            Console.WriteLine("total marks:" + total);
-            per = (total / 300.0f) * 100.0f;
-            Console.WriteLine("percentage:{0}", per);
+            int mark;
+            int total = 0;
+            for (int cnt = 0; cnt < 5; cnt++)
+            {
+
+                Console.WriteLine("enter 5 subject marks");
+                mark = convert.ToInt32(console.Readline());
+                total = total + mark;
+
+            }
+            per = (total / 500.0f) * 100.0f;
+            
             if(per>=75)
             {
                 grade = "distinction";
@@ -33,8 +37,9 @@ namespace _3subtotalpergrade
             {
                 grade = "fail";
             }
-            Console.WriteLine("grade:{0}", grade);
-            Console.ReadKey();
+            console.writeline("total=" + total);
+            console.writeline("per=" + per);
+            console.writeline("grade=" + grade);
         }
     }
 }
