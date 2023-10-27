@@ -12,20 +12,16 @@ namespace store_value
         {
 
             {
-                
-                int[] num= new int[5]; // 5 size array
 
-                // Accepting value from user 
-                for (i = 0; i < 5; i++)
+                int[] num = new int[] {1,2,3,4,5,6,7,8,9,10};
+
+                int i = 0;
+                for (i = 0; i < 10; i++)
                 {
-                    Console.Write("\nEnter your number:\t");
-                    //Storing value in an array
-                    num[i] = Convert.ToInt32(Console.ReadLine());
-                }
-                Console.WriteLine("\n\n");
-                //Printing the value on console
-                for (i = 0; i < 5; i++)
-                {
+                    
+                
+               
+               
                     Console.WriteLine("num [{0}]={1}", i, num[i]);
                         
                 }
