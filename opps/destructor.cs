@@ -26,7 +26,7 @@ namespace destructor
             employee emp = new employee();
             Console.ReadKey();
             employee emp1 = new employee();
-            Console.ReadKey();
+            Console.ReadKey();/
         }
     }
 }
