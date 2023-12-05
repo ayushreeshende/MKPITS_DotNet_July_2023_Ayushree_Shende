@@ -15,16 +15,17 @@ namespace WindowsForms_calculatoe_2
     {
         public Form1()
         {
-            InitializeComponent();
-        }
+         
+        
 
         private void red(object sender, EventArgs e)
-        {
+            {
 
-        }
-        int pn = 0
-;        string op = null;
-        int res = 0;
+
+                int pn = 0
+        ; string op = null;
+                int res = 0;
+            }
 
         private void button2_Click(object sender, EventArgs e)
         {
