@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-namespace hashtable_singer
+using System.Collections;
+namespace hashtable_sorted
 {
     public partial class Form1 : Form
     {
@@ -17,7 +16,7 @@ namespace hashtable_singer
         {
             InitializeComponent();
         }
-        Hashtable ht = new Hashtable();
+        SortedList ht = new SortedList();
         private void button1_Click(object sender, EventArgs e)
         {
             ht.Add(textBox1.Text, textBox2.Text);
@@ -31,23 +30,16 @@ namespace hashtable_singer
         {
             StringBuilder sb = new StringBuilder();
             ICollection key = ht.Keys;
-            foreach (string str in key)
+            foreach (string str in key) 
             {
-                sb.Append("albam name" + str + "\n");
+
+                sb.Append("album name " + str + "singer name " + ht[str] + "\n");
             }
             label3.Text = sb.ToString();
-            ICollection value = ht.Values;
-            StringBuilder sb1 = new StringBuilder();
-            foreach (string str in value)
-            {
-                sb.Append("singer " + str + "\n");
-label3.Text = sb1.ToString();
-            }
+
 
         }
-
-        
-
+       
         }
     }
 
