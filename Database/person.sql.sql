@@ -1,0 +1,12 @@
+create table person(id int,name varchar(20),password varchar(40),emailid varchar(20),gender varchar (10),city varchar(50),country varchar(50))
+insert into person values(1,'trisha','trish123','trishameshram@gmail.com','female','nagpur','india')
+insert into person values(2,'samek','samek445','samek@gmail.com','male','akola','us')
+insert into person values(3,'prachi','prachu33','prachi@04gmail.com','female','buldhana','america')
+insert into person values(4,'arti','arti78','arti90@gmail.com','female','chandrapur','usa')
+insert into person values(5,'amit','amit98','amit@gmail.com','male','gadchiroli','uk')
+insert into person values(6,'sumesh','sumu90','sumuesh@gmail.com','male','warora','france')
+insert into person values(7,'harsh','harsh678','harshu@gmail.com','male','wathoda','europe')
+insert into person values(8,'ankush','anku2345','ankush@gmail.com','male','surat','gujrat')
+insert into person values(9,'shubham','shubh87','shubham@gmail.com','male','mp','canada')
+insert into person values(10,'ojal','oju89','ojal08@gmail.com','female','up','america')
+select * from person
