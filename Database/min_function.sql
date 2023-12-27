@@ -20,4 +20,67 @@ select * from product111
 	SELECT Product_name, MIN(product_price) AS "Minimum price"   
     FROM Product111 
     GROUP BY Product_name  
-    HAVING MIN(product_price)>300
+    HAVING MIN(product_pri
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	ce)>300
