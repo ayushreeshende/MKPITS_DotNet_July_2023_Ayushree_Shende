@@ -1,170 +1,98 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.SqlClient;
+using System.Xml.Linq;
 
 namespace Ado.net_student
 {
-    public partial class Form1 : Form
+    class studentClass
+
     {
-        public Form1()
+        string strcon = "server=.\\SQLEXPRESS;integrated security=true;database=student_mkpsample";
+        public string Insertstudent22(int rno, string name, string gender, string hobby, string city, string dob)
         {
-            InitializeComponent();
-        }
+            using (SqlConnection con = new SqlConnection(strcon))
+            {
+                con.Open();
+                string str = "insert into student22 values(@rno,@name,@gender,@hobby,@city,@dob)";
+                using (SqlCommand cmd = new SqlCommand(str, con))
+                {
+                    cmd.Parameters.AddWithValue("@rno", rno);
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@gender", gender);
+                    cmd.Parameters.AddWithValue("@hobby", hobby);
+                    cmd.Parameters.AddWithValue("@city", city);
+                    cmd.Parameters.AddWithValue("@dob", dob);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    return "record save successfully";
+                }
 
-        private void Form1_Load(object sender, EventArgs e)
+            }
+        }
+        public string Updatestudent22(int rno, string name, string gender, string hobby, string city, string dob)
         {
+            using (SqlConnection con = new SqlConnection(strcon))
+            {
+                con.Open();
+                string str = "update student22 set name=@name,gender=@gender,hobby=@hobby,city=@city,dob=@dob where rno=@rno";
 
+                using (SqlCommand cmd = new SqlCommand(str, con))
+                {
+                    cmd.Parameters.AddWithValue("@rno", rno);
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@gender", gender);
+                    cmd.Parameters.AddWithValue("@hobby", hobby);
+                    cmd.Parameters.AddWithValue("@city", city);
+                    cmd.Parameters.AddWithValue("@dob", dob);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    return "record update successfully";
+                }
+            }
         }
-
-
-
-        private void label2_Click(object sender, EventArgs e)
+        public string Deletestudent22(int rno, string name)
         {
-
+            using (SqlConnection con = new SqlConnection(strcon))
+            {
+                con.Open();
+                string str = "delete from student22 where rno=@rno or name=@name";
+                using (SqlCommand cmd = new SqlCommand(str, con))
+                {
+                    cmd.Parameters.AddWithValue("@rno", rno);
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    return "record delete successfully";
+                }
+            }
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        public List<studentclass> searchstudent(int rno)
         {
+            using (SqlConnection con = new SqlConnection(strcon))
+            {
+                con.Open();
+                string str = "select * from students where rno=@rno";
+                using (SqlCommand cmd = new SqlCommand(str, con))
+                {
+                    cmd.Parameters.AddWithValue("@rno", rno);
+                    
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    List<studentclass> li = new List<studentclass>();
+                    while (dr.Read())
+                    {
+                        li.Add(new studentclass(Convert.ToInt32(dr["rno"].ToString()), dr["name"].ToString(), dr["gender"].ToString(), dr["hobby"].ToString(), dr["city"].ToString(), dr["dob"].ToString()));
+                    }
+                    return li;
 
+                }
+            }
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            studentClass s = new studentClass();
-            string g = null;
-            if (radioButton1.Checked)
-            {
-                g = "male";
-            }
-            if (radioButton2.Checked)
-            {
-                g = "female";
-            }
-            string h = null;
-            if (checkBox1.Checked)
-            {
-                h = "music";
-            }
-            if (checkBox2.Checked)
-            {
-                h = "dance";
-            }
-            if (checkBox3.Checked)
-            {
-                if (h != null)
-                    h = h + " " + "drawing";
-                else
-                    h = "drawing";
-            }
-            string result = s.Insertstudent22(Convert.ToInt32(textBox1.Text), textBox2.Text, g, h, comboBox1.Text, dateTimePicker1.Value.ToShortDateString());
-            label7.Text = result;
-            cleartext();
-        }
-        public void cleartext()
-        {
-            textBox1.Clear();
-            textBox2.Clear();
-            radioButton1.Checked = false;
-            radioButton2.Checked = false;
-            checkBox1.Checked = false;
-            checkBox2.Checked = false;
-            checkBox3.Checked = false;
-            comboBox1.Text = "";
-            dateTimePicker1.Value = DateTime.Now;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            studentClass s = new studentClass();
-            string g = null;
-            if (radioButton1.Checked)
-            {
-                g = "male";
-            }
-            if (radioButton2.Checked)
-            {
-                g = "female";
-            }
-            string h = null;
-            if (checkBox1.Checked)
-            {
-                h = "music";
-            }
-            if (checkBox2.Checked)
-            {
-                h = "dance";
-            }
-            if (checkBox3.Checked)
-            {
-                if (h != null)
-                    h = h + " " + "drawing";
-                else
-                    h = "drawing";
-            }
-            string result = s.Updatestudent22(Convert.ToInt32(textBox1.Text), textBox2.Text, g, h, comboBox1.Text, dateTimePicker1.Value.ToShortDateString());
-            label7.Text = result;
-            cleartext();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            studentClass s = new studentClass();
-
-            string result = s.Deletestudent22(Convert.ToInt32(textBox1.Text), textBox2.Text);
-
-            label7.Text = result;
-            cleartext();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            List<studentClass> li = new List<studentClass>();
-            studentClass s = new studentClass();
-            li = s.searchstudent(Convert.ToInt32(textBox1.Text));
-            textBox2.Text = li[0].name;
-            string g = li[0].gender;
-            string h = li[0]hobby;
-            if (g == "male")
-            {
-                radioButton1.Checked = true;
-            }
-            else if (g == "female")
-            {
-                radioButton2.Checked = true;
-           
-            }
-            string result = s.Updatestudent22(Convert.ToInt32(textBox1.Text), textBox2.Text, g, h, comboBox1.Text, dateTimePicker1.Value.ToShortDateString());
-            label7.Text = result;
-            cleartext();
-        }
-
-           
-        }
     }
-
-
-
-
-
-
-
-
-
+}
 
